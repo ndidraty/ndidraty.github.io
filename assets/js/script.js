@@ -10,21 +10,8 @@ $('.closeModal').click(function (e) {
     $('.popup').hide();
 })
 
-function download(filename, text) {
-  var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-  element.setAttribute('download', filename);
 
-  element.style.display = 'none';
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
-}
-
-
-App.controller('PopUpCtrl', function ($scope, $sce) {
+App.controller('PopUpCtrl', function ($scope, $http) {
 
 var all = {
     'Nikon': {
@@ -173,6 +160,7 @@ var all = {
         $scope.data_uri = null;
         $scope.selectedProduct = null;
         $scope.selectedOption = null;
+        $('.popup').hide();
     }
 
     $scope.toCheckout = function () {
@@ -208,14 +196,20 @@ var all = {
             first_name: $scope.first_name,
             last_name: $scope.last_name,
             phone: $scope.phone,
+            indications: $scope.indications,
             shipping_address: $scope.shipping_address,
             indications: $scope.indications,
             model: $scope.selectedOption.name,
             data_uri: $scope.data_uri
         };
-        var b64 = btoa(JSON.stringify(obj));
-        download('commande.txt', b64);
-        window.location.href = "mailto:ndidraty@gmail.com?subject=Commande&body=Veuillez joindre le fichier de la commade que vous avez téléchargé";
+
+        $.post('http://www.dropticien.com/ndidraty/ndidraty.php', obj, function () {
+            $scope.close();
+            $scope.$apply();
+            window.alert("Commande envoyée");
+        }).fail(function() {
+            window.alert("Erreur, veuillez réessayer");
+        });
     }
 
 });
