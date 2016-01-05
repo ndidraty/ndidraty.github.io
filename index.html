@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ndidraty</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/flaticon.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body class="landing">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html"><i class="flaticon-accessory76"></i> Ndidraty</a></h1>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2><i class="flaticon-2x flaticon-accessory76"></i> Ndidraty</h2>
+							<p>Une façon innovante pour obtenir des lunettes<br /> de <b>haute qualité</b> à <b>bas prix</b><br />
+						</div>
+						<a href="#one" class="more scrolly"><i class="flaticon-4x flaticon-eyeglasses18"></i></a>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style1 special" style="padding-bottom: 10px">
+						<div class="inner">
+							<header class="major">
+								<h2>Les verres de haute qualité n'ont jamais été moins cher</h2>
+                                <p>Prenez soin de vos yeux et optez pour la <b>haute gamme</b>, meilleure qualité, plus grande durabilité et meilleure protection, et <b>sans se ruiner!</b></p>
+							</header>
+							<ul class="icons major">
+								<li><span class="icon fa-eye major style1"><span class="label"></span></span></li>
+								<li><span class="icon fa-heart-o major style2"><span class="label"></span></span></li>
+								<li><span class="icon fa-usd major style3"><span class="label"></span></span></li>
+							</ul>
+
+                            <header class="major" style="margin-top: 4.5em;margin-bottom: 0">
+                                <h2>Comment ça marche ?</h2>
+                            </header>
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
+								<h2>Envoyez les pièces</h2>
+								<p>Envoyez-nous votre monture de choix, la prescription du médecin et les papiers d'assurance ou mutuelle, sans oublier l'écart pupillaire que nous allons expliquer lors de la commande.</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
+								<h2>Travail fait avec passion</h2>
+								<p>Notre équipe d'experts opticiens prendra soin de vous faire les meilleurs lunettes dans les meilleurs délais.</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
+								<h2>Toc, Toc, Toc .. Qui a commandé des lunettes ?</h2>
+								<p>Vous recevrez vos lunettes emballées avec soin, tous les papiers, carte de garantie et essuie-lunettes.</p>
+							</div>
+						</section>
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>Je commande</h2>
+								<p>Choisissez parmi une grande variété de verres de haute qualité.</p>
+							</header>
+							<ul class="actions vertical">
+								<li><a href="#" class="button fit special">Commander</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+                        <ul class="icons">
+                            <li><img src="images/nikon.png" height="68" alt=""></li>
+                            <li><img src="images/essilor.png" height="68" alt=""></li>
+                        </ul>
+						<ul class="copyright">
+							<li>&copy; Ndidraty 2015</li>
+						</ul>
+					</footer>
+
+			</div>
+            
+            <div class="popup" ng-app="App">
+                <div class="popup-body" ng-controller="PopUpCtrl">
+                    <div class="page" ng-show="page === 'brands'">
+                        <h1 class="popup-title">Marques <i class="icon fa-close pull-right"></i></h1>
+                        <ul class="brands">
+                            <li><img ng-click="setBrand('Nikon')" src="images/nikon-big.jpg" height="300" width="300" alt=""></li>
+                            <li><img ng-click="setBrand('Essilor')" src="images/essilor-big.jpg" height="300" width="396" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="page" ng-show="page === 'products'">
+                        <h1 class="popup-title">{{brand}} <i class="icon fa-close pull-right"></i></h1>
+                        <section>
+                            <div class="row uniform">
+                                <p class="desc" ng-show="selectedBrand.img">
+                                    <img src="{{selectedBrand.img}}" />
+                                </p>
+                                <div class="12u$">
+                                    <label>Modèle</label>
+                                    <div class="select-wrapper">
+                                        <select ng-options="product as product.name for product in selectedBrand.products track by product.code" ng-model="selectedProduct"></select>
+                                    </div>
+                                </div>
+                                <div class="12u$">
+                                    <label>Options</label>
+                                    <div class="select-wrapper">
+                                        <select ng-options="option as option.name for option in selectedProduct.options track by option.name" ng-model="selectedOption"></select>
+                                    </div>
+                                </div>
+                                <div class="12u$">
+                                    <textarea ng-model="indications" placeholder="Autres indications" rows="2"></textarea>
+                                </div>
+                                <div class="price" ng-show="selectedOption">Prix: {{selectedOption.price}} DH TTC</div>
+                                <div class="12u$">
+                                    <ul class="actions text-center">
+                                        <li><button ng-disabled="!selectedProduct || !selectedOption" ng-click="toCheckout()" class="special">Passer la commande</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="page" ng-show="page === 'checkout'">
+                        <h1 class="popup-title">{{brand}} <i class="icon fa-close pull-right"></i></h1>
+                        <section>
+                            <div class="row uniform">
+                                <div class="12u$">
+                                    <p><b>Modèle:</b> {{selectedProduct.name}}</p>
+                                    <p><b>Option:</b> {{selectedOption.name}}</p>
+                                    <p><b>Prix:</b> {{selectedOption.price}} DH TTC</p>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <input type="text" ng-model="first_name" placeholder="Nom" />
+                                </div>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <input type="text" ng-model="last_name" placeholder="Prénom" />
+                                </div>
+                                <div class="12u$">
+                                    <input type="text" ng-model="phone" placeholder="Tel" />
+                                </div>
+                                <div class="12u$">
+                                    <textarea ng-model="shipping_address" placeholder="Adresse de livraison" rows="2"></textarea>
+                                </div>
+                                <p>La photo est nécessaire pour calculer les écarts pour centrer les verres de manière appropriée. Grâce à la photo nous pourrons effectuer la mesure de vos écarts pupillaires avec une grande précision.<br>
+                                Mettez votre menture, assurz vous que celle-ci soit droite à l'horizontale, zoomez le maximum possible, regardez droit dans l'objectif et cliquez sur "Prendre photo".</p>
+                                <div class="12u$">
+                                    <center><img src="images/pos.jpg" height="250" width="800" alt=""></center>
+                                </div>
+                                <div class="12u$" ng-hide="data_uri">
+                                    <div id="my_camera" style="width:320px; height:240px;margin:0 auto;"></div>
+                                </div>
+                                <div class="12u$" ng-show="data_uri">
+                                    <div id="my_result" class="text-center"></div>
+                                </div>
+                                <div class="12u$">
+                                    <ul class="actions text-center">
+                                        <li><button ng-hide="data_uri" ng-click="snap()">Prendre photo</button></li>
+                                        <li><button ng-show="data_uri" ng-click="resnap()">Reprendre photo</button></li>
+                                        <li><button ng-disabled="!first_name || !last_name || !phone || !shipping_address || !data_uri" ng-click="confirm()" class="special">Télécharger le fichier de la commande</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+            <script src="assets/js/webcam.js"></script>
+            <script src="assets/js/angular.min.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/script.js"></script>
+
+	</body>
+</html>

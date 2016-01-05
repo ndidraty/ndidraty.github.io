@@ -1,0 +1,73 @@
+.popup {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99998;
+    /*display: none;*/
+}
+
+.popup-body {
+    width: 90%;
+    height: 90%;
+    background: #2e3842;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    z-index: 99999;
+    box-shadow: 0 0 15px #000;
+    overflow-y: auto;
+}
+
+.page {
+    padding: 10px;
+}
+
+.popup-title {
+    text-align: center;
+    border-bottom: 1px solid #1E242A;
+    padding: 10px 0;
+    font-size: 2em;
+}
+
+.page > ul {
+    list-style: none;
+    text-align: center;
+}
+
+.page > ul > li {
+    display: inline-block;
+    margin: 5px;
+}
+
+.brands img {
+    cursor: pointer;
+    border: 5px solid transparent;
+}
+
+.brands img:hover {
+    cursor: pointer;
+    border: 5px solid #1E242A;
+}
+
+.price {
+    text-align: center;
+    font-size: 28px;
+    width: 100%;
+}
+
+.desc {
+    width: 100%;
+    text-align: center;
+}
+
+.doc {
+    margin: 0 auto;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
