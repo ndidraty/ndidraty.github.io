@@ -203,7 +203,7 @@ var all = {
             data_uri: $scope.data_uri
         };
 
-        $.post('http://www.dropticien.com/ndidraty/ndidraty.php', obj, function () {
+        $.post('//www.dropticien.com/ndidraty/ndidraty.php', obj, function () {
             $scope.close();
             $scope.$apply();
             window.alert("Commande envoyée");
