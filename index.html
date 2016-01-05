@@ -79,7 +79,7 @@
 								<p>Choisissez parmi une grande variété de verres de haute qualité.</p>
 							</header>
 							<ul class="actions vertical">
-								<li><a href="#" class="button fit special">Commander</a></li>
+								<li><a href="#" id="openModal" class="button fit special">Commander</a></li>
 							</ul>
 						</div>
 					</section>
@@ -100,14 +100,14 @@
             <div class="popup" ng-app="App">
                 <div class="popup-body" ng-controller="PopUpCtrl">
                     <div class="page" ng-show="page === 'brands'">
-                        <h1 class="popup-title">Marques <i class="icon fa-close pull-right"></i></h1>
+                        <h1 class="popup-title">Marques <i class="icon fa-close pull-right closeModal" ng-click="close()"></i></h1>
                         <ul class="brands">
                             <li><img ng-click="setBrand('Nikon')" src="images/nikon-big.jpg" height="300" width="300" alt=""></li>
                             <li><img ng-click="setBrand('Essilor')" src="images/essilor-big.jpg" height="300" width="396" alt=""></li>
                         </ul>
                     </div>
                     <div class="page" ng-show="page === 'products'">
-                        <h1 class="popup-title">{{brand}} <i class="icon fa-close pull-right"></i></h1>
+                        <h1 class="popup-title">{{brand}} <i class="icon fa-close pull-right closeModal" ng-click="close()"></i></h1>
                         <section>
                             <div class="row uniform">
                                 <p class="desc" ng-show="selectedBrand.img">
@@ -138,7 +138,7 @@
                         </section>
                     </div>
                     <div class="page" ng-show="page === 'checkout'">
-                        <h1 class="popup-title">{{brand}} <i class="icon fa-close pull-right"></i></h1>
+                        <h1 class="popup-title">{{brand}} <i class="icon fa-close pull-right closeModal" ng-click="close()"></i></h1>
                         <section>
                             <div class="row uniform">
                                 <div class="12u$">

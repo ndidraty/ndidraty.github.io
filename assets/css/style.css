@@ -6,7 +6,11 @@
     top: 0;
     left: 0;
     z-index: 99998;
-    /*display: none;*/
+    display: none;
+}
+
+.closeModal {
+    cursor: pointer;
 }
 
 .popup-body {

@@ -1,6 +1,15 @@
 var App = angular.module('App', []);
 
 
+$('#openModal').click(function (e) {
+    e.preventDefault();
+    $('.popup').show();
+});
+
+$('.closeModal').click(function (e) {
+    $('.popup').hide();
+})
+
 function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -150,6 +159,20 @@ var all = {
         $scope.brand = brand;
         $scope.selectedBrand = all[brand];
         $scope.page = "products";
+    }
+
+    $scope.close = function () {
+        $scope.brand = null;
+        $scope.selectedBrand = null;
+        $scope.page = "brands";
+        $scope.first_name = null;
+        $scope.last_name = null;
+        $scope.phone = null;
+        $scope.shipping_address = null;
+        $scope.indications = null;
+        $scope.data_uri = null;
+        $scope.selectedProduct = null;
+        $scope.selectedOption = null;
     }
 
     $scope.toCheckout = function () {
