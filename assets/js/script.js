@@ -203,7 +203,7 @@ var all = {
             data_uri: $scope.data_uri
         };
 
-        $.post('//www.dropticien.com/ndidraty/ndidraty.php', obj, function () {
+        $.post('https://www.impelup.com/a6be3d71a17fd19132c1525c49c2a67ff8296b3b/proxy.php', obj, function () {
             $scope.close();
             $scope.$apply();
             window.alert("Commande envoyée");
