@@ -18,16 +18,6 @@ var all = {
         img: "images/nikondoc.jpg",
         products: [
         {
-            code: 'HC',
-            name: 'HC (Hard Coat)',
-            options: [
-                {name:'HC - indice 1.5', price: 100},
-                {name:'HC - indice 1.56', price:100},
-                {name:'HC - indice 1.59', price: 100},
-                {name:'HC - indice 1.6', price: 100}
-            ]
-        },
-        {
             code: 'HCC',
             name: 'HCC (Hard Clear Coat)',
             options: [
